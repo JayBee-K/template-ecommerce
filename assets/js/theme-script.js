@@ -12,7 +12,27 @@ const countDown = function () {
 			console.log('The countdown has ended!');
 		});
 }
+
+const ecm_cta = function () {
+	let pageScroll = 0;
+	document.addEventListener('scroll', function (e) {
+		pageScroll = window.scrollY;
+		
+		if (pageScroll > 400) {
+			document.getElementsByClassName('ecm-cta')[0].classList.add('show');
+		} else {
+			document.getElementsByClassName('ecm-cta')[0].classList.remove('show');
+		}
+	});
+	
+	let returnTop = document.getElementById('returnTop');
+	returnTop.addEventListener('click', function (e) {
+		scrollTop();
+	})
+}
+
 $(function () {
+	ecm_cta();
 	$('#countdown').countdown({
 		date: '07/24/2021 23:59:59', // day-month-year
 		day: 'Ngày',
