@@ -47,6 +47,7 @@ $(function () {
 	}, function () {
 		alert('Hết thời gian khuyến mãi!');
 	});
+	
 	$('#countdown_product-2').countdown({
 		date: '07/24/2021 23:59:59', // day-month-year
 		day: 'Ngày',
@@ -60,6 +61,7 @@ $(function () {
 	}, function () {
 		alert('Hết thời gian khuyến mãi!');
 	});
+	
 	$('#countdown_product-3').countdown({
 		date: '07/24/2021 23:59:59', // day-month-year
 		day: 'Ngày',
@@ -91,6 +93,7 @@ $(function () {
 			disableOnInteraction: false,
 		}
 	});
+	
 	const categoryHome = new Swiper('#ecm-category .swiper-container', {
 		loop: false,
 		speed: 1000,
@@ -121,6 +124,7 @@ $(function () {
 			}
 		}
 	});
+	
 	const articleHome = new Swiper('#ecm-article .swiper-container', {
 		loop: false,
 		speed: 1000,
@@ -146,5 +150,36 @@ $(function () {
 				spaceBetween: 30,
 			}
 		}
+	});
+	
+	const sidebarProduct = new Swiper('#sidebar-product .swiper-container', {
+		loop: true,
+		speed: 1000,
+		spaceBetween: 20,
+		pagination: {
+			el: "#ecm-banner .swiper-pagination",
+			clickable: true,
+		},
+		autoplay: {
+			delay: 10000,
+			disableOnInteraction: false,
+		}
+	});
+	
+	const imageNav = new Swiper('#preview-images-nav', {
+		spaceBetween: 10,
+		slidesPerView: 4,
+		freeMode: true,
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+	});
+	const imageAvatar = new Swiper('#preview-images-avatar', {
+		thumbs: {
+			swiper: imageNav,
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
 	});
 });
