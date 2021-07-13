@@ -157,7 +157,35 @@ $(function () {
 		speed: 1000,
 		spaceBetween: 20,
 		pagination: {
-			el: "#ecm-banner .swiper-pagination",
+			el: "#sidebar-product .swiper-pagination",
+			clickable: true,
+		},
+		autoplay: {
+			delay: 10000,
+			disableOnInteraction: false,
+		}
+	});
+	
+	const relatedProduct = new Swiper('#related-product .swiper-container', {
+		loop: true,
+		speed: 1000,
+		spaceBetween: 20,
+		pagination: {
+			el: "#related-product .swiper-pagination",
+			clickable: true,
+		},
+		autoplay: {
+			delay: 10000,
+			disableOnInteraction: false,
+		}
+	});
+	
+	const newArticle = new Swiper('#new-article .swiper-container', {
+		loop: true,
+		speed: 1000,
+		spaceBetween: 20,
+		pagination: {
+			el: "#new-article .swiper-pagination",
 			clickable: true,
 		},
 		autoplay: {
