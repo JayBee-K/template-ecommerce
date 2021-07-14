@@ -58,7 +58,6 @@
 	</style>
 </head>
 <body>
-
 <header class="ecm-header">
 	<div class="ecm-header_top">
 		<div class="container">
@@ -69,8 +68,8 @@
 					</div>
 				</div>
 				<div class="col-md-6">
-					<div class="top-list">
-						<ul class="list-unstyled mb-0 d-md-flex align-items-center justify-content-end">
+					<div class="top-list d-none d-lg-block">
+						<ul class="list-unstyled mb-0 d-flex align-items-center justify-content-center justify-content-md-end flex-wrap">
 							<li>
 								<a href="#">
 									Trả hàng
@@ -114,7 +113,7 @@
 	<div class="ecm-header_middle">
 		<div class="container">
 			<div class="header-flex align-items-center">
-				<div class="header-left">
+				<div class="header-left mb-2 mb-lg-0 text-center text-lg-left">
 					<a href="" class="d-inline-block">
 						<img src="./assets/images/logo.png" class="logo" alt="">
 					</a>
@@ -127,8 +126,8 @@
 						</form>
 					</div>
 				</div>
-				<div class="header-right d-flex align-items-center justify-content-center justify-content-lg-end">
-					<div class="header-user pr-4">
+				<div class="header-right mt-3 mt-md-0 d-flex align-items-center justify-content-between justify-content-lg-end">
+					<div class="header-user pr-lg-4">
 						<a class="inner" href="javascript:void(0)">
 							Login / Register
 						</a>
@@ -142,6 +141,11 @@
 							</div>
 						</a>
 					</div>
+					<div id="hamburger" class="header-hamburger no-animation d-block d-lg-none">
+						<i></i>
+						<i></i>
+						<i></i>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -149,7 +153,7 @@
 	<div class="ecm-header_bottom">
 		<div class="container">
 			<div class="header-flex align-items-center">
-				<div class="header-left">
+				<div class="header-left d-none d-lg-block">
 					<div class="header-navigation">
 						<ul class="list-unstyled mb-0">
 							<li>
@@ -309,8 +313,16 @@
 					</div>
 				</div>
 				<div class="header-middle">
-					<div class="header-menu">
+					<div class="header-menu" id="hasMenu">
 						<ul class="list-unstyled mb-0">
+							<li class="d-block d-lg-none close-navigation">
+								<a href="index.html" class="d-inline-block">
+									<img src="./assets/images/logo.png" alt="" class="img-fluid">
+								</a>
+								<a href="javascript:void(0)" id="close-navigation">
+									<i class="fal fa-times"></i>
+								</a>
+							</li>
 							<li>
 								<a href="">
 									Trang chủ
@@ -320,9 +332,160 @@
 								<a href="">Về chúng tôi</a>
 							</li>
 							<li>
-								<a href="">
+								<a href="javascript:void(0)">
+									Sản phẩm
+									<i class="menu-arrow"></i>
+								</a>
+								<ul class="list-unstyled mb-0">
+									<li>
+										<a href="javascript:void(0)">
+											<span class="icon">
+												<i class="flaticon-cherry"></i>
+											</span>
+											Fresh Fruits
+											<i class="fal fa-angle-right menu-arrow"></i>
+										</a>
+										<ul class="list-unstyled mb-0">
+											<li>
+												<a href="">
+													Fresh Fruits 01
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Fruits 02
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Fruits 03
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Fruits 04
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Fruits 05
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Fruits 06
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href=javascript:void(0)"">
+											<span class="icon">
+												<i class="flaticon-fish"></i>
+											</span>
+											Fresh Fish
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="icon">
+												<i class="flaticon-chicken-leg"></i>
+											</span>
+											Fresh Meat
+											<i class="fal fa-angle-right menu-arrow"></i>
+										</a>
+										<ul class="list-unstyled mb-0">
+											<li>
+												<a href="">
+													Fresh Meat 01
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Meat 02
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Meat 03
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Meat 04
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="icon">
+												<i class="flaticon-orange-juice"></i>
+											</span>
+											Nature
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="icon">
+												<i class="flaticon-fish"></i>
+											</span>
+											Fresh Fish
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="icon">
+												<i class="flaticon-orange-juice"></i>
+											</span>
+											Nature
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="icon">
+												<i class="flaticon-chicken-leg"></i>
+											</span>
+											Fresh Meat
+											<i class="fal fa-angle-right menu-arrow"></i>
+										</a>
+										<ul class="list-unstyled mb-0">
+											<li>
+												<a href="">
+													Fresh Meat 01
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Meat 02
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Meat 03
+												</a>
+											</li>
+											<li>
+												<a href="">
+													Fresh Meat 04
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="icon">
+												<i class="flaticon-fish"></i>
+											</span>
+											Fresh Fish
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="javascript:void(0)">
 									Tin tức
-									<i></i>
+									<i class="menu-arrow"></i>
 								</a>
 								<ul class="list-unstyled mb-0">
 									<li>
@@ -350,7 +513,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="header-right">
+				<div class="header-right d-none d-lg-block">
 					<div class="header-sale">
 						<i class="fas fa-badge-percent"></i>
 						Giảm giá <b>40% tất cả sản phẩm</b>
@@ -359,6 +522,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="ecm-header_overlay"></div>
 </header>
 <div class="ecm-body">
 	<div class="ecm-page_detail-article">
