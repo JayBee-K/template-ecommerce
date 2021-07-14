@@ -31,8 +31,61 @@ const ecm_cta = function () {
 	})
 }
 
+function callMenu() {
+	if ($('.ecm-header').hasClass('toggle-navigation')) {
+		$('.ecm-header').removeClass('toggle-navigation');
+	} else {
+		$('.ecm-header').addClass('toggle-navigation');
+	}
+}
+
 $(function () {
 	ecm_cta();
+	
+	let windowWidth = $(window).width();
+	if (windowWidth < 992) {
+		$(".ecm-header .ecm-header_bottom .header-menu > ul > li > ul").each(function (index) {
+			$(this).prev().attr({
+				"href": "#subMenu" + index,
+				"data-toggle": "collapse"
+			});
+			$(this).attr({
+				"id": "subMenu" + index,
+				"class": "collapse list-unstyled mb-0",
+				"data-parent": "#hasMenu"
+			});
+			
+			if ($(this).find('ul').length > 0) {
+				$(this).find('ul').each(function (index_child, elm_child) {
+					$(elm_child).prev().attr({
+						"href": "#subMenu_child" + index_child,
+						"data-toggle": "collapse"
+					});
+					$(elm_child).attr({
+						"id": "subMenu_child" + index_child,
+						"class": "collapse list-unstyled mb-0",
+						"data-parent": "#subMenu" + index
+					});
+				})
+			}
+		});
+		
+		
+		$('.ecm-header .ecm-header_bottom .header-menu > ul > li > a').click(function () {
+			if ($(this).next('ul').hasClass('show')) {
+				let _ul = $(this).next('ul');
+				_ul.find('ul.show').removeClass('show');
+				_ul.find('a[aria-expanded]').attr('aria-expanded', false);
+			} else {
+				$(this).closest('#hasMenu').find('.show').removeClass('show');
+				$(this).closest('#hasMenu').find('a[aria-expanded]').attr('aria-expanded', false);
+			}
+		});
+	}
+	
+	$(document).on("click", "#hamburger, #close-navigation, .header-overlay", function () {
+		callMenu();
+	});
 	
 	$('#countdown_product-1').countdown({
 		date: '07/24/2021 23:59:59', // day-month-year
@@ -210,4 +263,42 @@ $(function () {
 			prevEl: ".swiper-button-prev",
 		},
 	});
+	
+	$('.change-quantity').click(function () {
+		changeQuantity($(this), $(this).parent().find('input[name=quantity]'));
+	});
+	
+	$('input[name=quantity]').change(function () {
+		changeQuantity("", $(this));
+	});
+	
+	var beforeChangeQuantity = 1;
+	var changeQuantity = function (button = '', input = '') {
+		let minimum = input.attr('data-minimum'), // Số lượng đặt tối thiểu
+			maximum = input.attr('data-maximum'), // Số lượng đặt tối đa
+			valueQuantity = parseInt(input.val()); // Số lượng đặt
+		
+		if (isNaN(valueQuantity)) {
+			valueQuantity = beforeChangeQuantity;
+		}
+		
+		if (button != '') {
+			let type = parseInt(button.attr('data-type')); // type = 0 - giảm, type = 1 tăng
+			if (type === 1) {
+				valueQuantity += 1;
+			} else {
+				valueQuantity -= 1;
+			}
+		}
+		
+		if (valueQuantity < minimum || valueQuantity > maximum) {
+			valueQuantity = beforeChangeQuantity;
+			input.val(valueQuantity);
+			alert(`Số lượng đặt:\nTối thiểu là ${minimum} sản phẩm\nTối đa là ${maximum} sản phẩm\nVui lòng thử lại!`);
+			return false;
+		} else {
+			input.val(valueQuantity);
+		}
+		beforeChangeQuantity = valueQuantity;
+	}
 });
