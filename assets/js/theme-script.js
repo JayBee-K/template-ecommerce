@@ -39,6 +39,74 @@ function callMenu() {
 	}
 }
 
+var beforeChangeQuantity = 1;
+var changeQuantity = function (button = '', input = '') {
+	let minimum = input.attr('data-minimum'), // Số lượng đặt tối thiểu
+		maximum = input.attr('data-maximum'), // Số lượng đặt tối đa
+		valueQuantity = parseInt(input.val()); // Số lượng đặt
+	
+	if (isNaN(valueQuantity)) {
+		valueQuantity = beforeChangeQuantity;
+	}
+	
+	if (button != '') {
+		let type = parseInt(button.attr('data-type')); // type = 0 - giảm, type = 1 tăng
+		if (type === 1) {
+			valueQuantity += 1;
+		} else {
+			valueQuantity -= 1;
+		}
+	}
+	
+	if (valueQuantity < minimum || valueQuantity > maximum) {
+		valueQuantity = beforeChangeQuantity;
+		input.val(valueQuantity);
+		alert(`Số lượng đặt:\nTối thiểu là ${minimum} sản phẩm\nTối đa là ${maximum} sản phẩm\nVui lòng thử lại!`);
+		return false;
+	} else {
+		input.val(valueQuantity);
+	}
+	beforeChangeQuantity = valueQuantity;
+}
+
+var callPopupOrder = function (elm) {
+	let getQuantity = elm.closest('.ecm-wrap_content').find('input[name=quantity]').val(),
+		getLabelOption = elm.closest('.ecm-wrap_content').find('[data-option-label]').attr('data-option-label'),
+		getValueOption = elm.closest('.ecm-wrap_content').find('input[name=option]:checked').attr('data-option-value');
+	$('#popupOrder #quantity').text(parseInt(getQuantity));
+	$('#popupOrder #option').html(`${getLabelOption}: <span>${getValueOption}</span>`);
+	$('#popupOrder').modal('show');
+}
+
+
+const rangePrice = function () {
+	var rangeSlider = document.getElementById('rangePrice');
+	var moneyFormat = wNumb({
+		decimals: 0,
+		thousand: '.',
+		suffix: ' đ',
+	});
+	noUiSlider.create(rangeSlider, {
+		start: [0, 100000],
+		step: 1,
+		range: {
+			'min': [0],
+			'max': [1000000]
+		},
+		format: moneyFormat,
+		connect: true
+	});
+	
+	rangeSlider.noUiSlider.on('update', function (values, handle) {
+		document.getElementById('rangePrice-min').innerHTML = values[0];
+		document.getElementById('rangePrice-max').innerHTML = values[1];
+		document.getElementsByName('min-value').value = moneyFormat.from(
+			values[0]);
+		document.getElementsByName('max-value').value = moneyFormat.from(
+			values[1]);
+	});
+}
+
 $(function () {
 	ecm_cta();
 	
@@ -178,32 +246,6 @@ $(function () {
 		}
 	});
 	
-	const articleHome = new Swiper('#ecm-article .swiper-container', {
-		loop: false,
-		speed: 1000,
-		autoplay: {
-			delay: 10000,
-			disableOnInteraction: false,
-		},
-		navigation: {
-			nextEl: "#ecm-article .swiper-button-next",
-			prevEl: "#ecm-article .swiper-button-prev",
-		},
-		breakpoints: {
-			320: {
-				slidesPerView: 1.3,
-				spaceBetween: 30,
-			},
-			600: {
-				slidesPerView: 2.3,
-				spaceBetween: 30,
-			},
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			}
-		}
-	});
 	
 	const sidebarProduct = new Swiper('#sidebar-product .swiper-container', {
 		loop: true,
@@ -272,33 +314,16 @@ $(function () {
 		changeQuantity("", $(this));
 	});
 	
-	var beforeChangeQuantity = 1;
-	var changeQuantity = function (button = '', input = '') {
-		let minimum = input.attr('data-minimum'), // Số lượng đặt tối thiểu
-			maximum = input.attr('data-maximum'), // Số lượng đặt tối đa
-			valueQuantity = parseInt(input.val()); // Số lượng đặt
+	$('#btnPopupOrder').click(function () {
+		callPopupOrder($(this));
+	});
+	
+	// Range Price Proudct
+	if ($('#rangePrice').length) {
+		$('.noUi-handle').on('click', function () {
+			$(this).width(50);
+		});
 		
-		if (isNaN(valueQuantity)) {
-			valueQuantity = beforeChangeQuantity;
-		}
-		
-		if (button != '') {
-			let type = parseInt(button.attr('data-type')); // type = 0 - giảm, type = 1 tăng
-			if (type === 1) {
-				valueQuantity += 1;
-			} else {
-				valueQuantity -= 1;
-			}
-		}
-		
-		if (valueQuantity < minimum || valueQuantity > maximum) {
-			valueQuantity = beforeChangeQuantity;
-			input.val(valueQuantity);
-			alert(`Số lượng đặt:\nTối thiểu là ${minimum} sản phẩm\nTối đa là ${maximum} sản phẩm\nVui lòng thử lại!`);
-			return false;
-		} else {
-			input.val(valueQuantity);
-		}
-		beforeChangeQuantity = valueQuantity;
+		rangePrice();
 	}
 });

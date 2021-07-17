@@ -33,6 +33,7 @@
 	<link rel="stylesheet" href="./assets/fonts/flaticon/font/flaticon.css">
 	<link rel="stylesheet" href="./assets/plugin/animate.css">
 	<link rel="stylesheet" href="./assets/plugin/fancybox/jquery.fancybox.min.css"/>
+	<link rel="stylesheet" href="./assets/plugin/noUiSlider/noUiSlider.css"/>
 	<link rel="stylesheet" href="./assets/css/style.css">
 	
 	<style>
@@ -58,6 +59,118 @@
 	</style>
 </head>
 <body>
+
+<div class="ecm-modal">
+	<div class="modal fade" id="popupOrder" tabindex="-1">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="modal-inner">
+						<div class="product-info">
+							<div class="product-image">
+								<img class="img-fluid" src="./assets/images/product/1.jpg"
+								     alt="">
+							</div>
+							<div class="product-info_main">
+								<div class="product-name">
+									TÚI XÁCH TOMTOC (USA) FASHION AND STYLISH TOTE BAG FOR ULTRABOOK 13”-15.4”
+								</div>
+								<div class="product-price">
+									Đơn giá: <span>180.000 <sup>đ</sup></span>
+								</div>
+								<div class="product-flex">
+									<div id="option" class="product-option">
+									
+									</div>
+									<div class="product-quantity">
+										Số lượng: <span id="quantity">0</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="product-form">
+							<a href="javascript:void(0)" class="modal-close" data-dismiss="modal">
+								<i class="fal fa-times"></i>
+							</a>
+							<div class="product-form_inner">
+								<form action="" class="mb-0">
+									<div class="form-method">
+										<label for="">
+											Phương thức thanh toán
+										</label>
+										<div class="method-list">
+											<div class="method-list_item">
+												<input checked type="radio" name="method"
+												       value="1">
+												<span>Ship COD</span>
+											</div>
+											<div class="method-list_item">
+												<input type="radio" name="method"
+												       value="2">
+												<span>Thẻ ATM</span>
+											</div>
+											<div class="method-list_item">
+												<input type="radio" name="method"
+												       value="3">
+												<span>Thẻ Visa</span>
+											</div>
+										</div>
+									</div>
+									<div class="form-info">
+										<label for="">
+											Thông tin nhận hàng
+										</label>
+										<div class="row row-10">
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label for="">Họ tên</label>
+													<input type="text" class="form-control" required
+													       placeholder="Họ tên nhận hàng ...">
+												</div>
+											</div>
+											<div class="col-md-6 col-12">
+												<div class="form-group">
+													<label for="">Số điện thoại</label>
+													<input type="tel" class="form-control" required
+													       placeholder="SDT nhận hàng ...">
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group">
+													<label for="">Địa chỉ</label>
+													<input type="text" class="form-control" required
+													       placeholder="Địa chỉ nhận hàng ...">
+												</div>
+											</div>
+											<div class="col-12">
+												<div class="form-group">
+													<label for="">Ghi chú</label>
+													<textarea class="form-control" rows="3"></textarea>
+												</div>
+											</div>
+											<div class="col-12 text-md-right text-center mt-4">
+												<button type="submit" class="btn btn-effect">
+													Đặt hàng
+												</button>
+											</div>
+											<div class="col-12 d-block d-lg-none text-center mt-3">
+												<a href="javascript:void(0)" class="mt-2 text-close"
+												   data-dismiss="modal">
+													Đóng popup
+												</a>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <header class="ecm-header">
 	<div class="ecm-header_top">
 		<div class="container">
@@ -634,48 +747,55 @@
 										voluptate voluptates voluptatibus.
 									</div>
 									<div class="product-option">
-										<span>
+										<span data-option-label="Màu sắc">
 											Màu Sắc:
 										</span>
 										<ul class="list-unstyled mb-0">
 											<li>
-												<input type="radio" name="option" value="1">
+												<input type="radio" name="option" data-option-value="Option 1"
+												       value="1">
 												<label for="">
 													Option 1
 												</label>
 											</li>
 											<li>
-												<input checked type="radio" name="option" value="2">
+												<input checked type="radio" name="option" data-option-value="Option 2"
+												       value="2">
 												<label for="">
 													Option 2
 												</label>
 											</li>
 											<li>
-												<input type="radio" name="option" value="3">
+												<input type="radio" name="option" data-option-value="Option 3"
+												       value="3">
 												<label for="">
 													Option 3
 												</label>
 											</li>
 											<li>
-												<input type="radio" name="option" value="5">
+												<input type="radio" name="option" data-option-value="Option 4"
+												       value="4">
 												<label for="">
 													Option 4
 												</label>
 											</li>
 											<li>
-												<input type="radio" name="option" value="5">
+												<input type="radio" name="option" data-option-value="Option 5"
+												       value="5">
 												<label for="">
 													Option 5
 												</label>
 											</li>
 											<li>
-												<input type="radio" name="option" value="6">
+												<input type="radio" name="option" data-option-value="Option 6"
+												       value="6">
 												<label for="">
 													Option 6
 												</label>
 											</li>
 											<li>
-												<input type="radio" name="option" value="71">
+												<input type="radio" name="option" data-option-value="Option 7"
+												       value="7">
 												<label for="">
 													Option 7
 												</label>
@@ -720,7 +840,8 @@
 										<button type="submit" class="btn btn-effect mr-2">
 											Thêm vào giỏ hàng
 										</button>
-										<button type="submit" class="btn btn-effect btn-price">
+										<button type="button" data-targer="#popupOrder" id="btnPopupOrder"
+										        class="btn btn-effect btn-price">
 											Đặt mua ngay <br>
 										</button>
 									</div>
@@ -1728,6 +1849,7 @@
 <script type="text/javascript" src="./assets/plugin/swiper/swiper.js"></script>
 <script type="text/javascript" src="./assets/plugin/fancybox/jquery.fancybox.min.js"></script>
 <script type="text/javascript" src="./assets/plugin/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="./assets/plugin/noUiSlider/noUiSlider.js"></script>
 <script type="text/javascript" src="./assets/js/theme-script.js"></script>
 
 
