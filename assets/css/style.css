@@ -2197,7 +2197,7 @@ textarea:focus,
     cursor: pointer;
 }
 
-.ecm-product_images .theme-swiper-navigation {
+.theme-swiper-navigation {
     border-radius: 0;
     background: rgba(0, 0, 0, .4);
     color: var(--color-white) !important;
@@ -2212,8 +2212,7 @@ textarea:focus,
     margin: 0;
 }
 
-
-.ecm-product_images .theme-swiper-navigation:after {
+.theme-swiper-navigation:after {
     color: var(--color-white);
     font-family: "Font Awesome 5 Pro";
     font-weight: 500;
@@ -2221,25 +2220,25 @@ textarea:focus,
     transition: .3s all ease;
 }
 
-.ecm-product_images .theme-swiper-navigation.swiper-button-prev:after {
+.theme-swiper-navigation.swiper-button-prev:after {
     content: "\f053";
 }
 
-.ecm-product_images .theme-swiper-navigation.swiper-button-next:after {
+.theme-swiper-navigation.swiper-button-next:after {
     content: "\f054";
 }
 
-.ecm-product_images .theme-swiper-navigation:hover:after {
+.theme-swiper-navigation:hover:after {
     color: var(--primary-color);
 }
 
-.ecm-product_images .theme-swiper-navigation.swiper-button-prev {
+.theme-swiper-navigation.swiper-button-prev {
     padding-left: 0;
     left: 0;
     border-radius: 0 5px 5px 0;
 }
 
-.ecm-product_images .theme-swiper-navigation.swiper-button-next {
+.theme-swiper-navigation.swiper-button-next {
     padding-right: 0;
     right: 0;
     border-radius: 5px 0 0 5px;

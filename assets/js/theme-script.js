@@ -209,6 +209,10 @@ $(function () {
 			delay: 10000,
 			disableOnInteraction: false,
 		},
+		navigation: {
+			nextEl: "#swiper-highlight .swiper-button-next",
+			prevEl: "#swiper-highlight .swiper-button-prev",
+		},
 		breakpoints: {
 			320: {
 				slidesPerView: 1.2,
@@ -222,37 +226,6 @@ $(function () {
 				slidesPerView: 4.2,
 				spaceBetween: 10,
 			},
-		}
-	});
-	
-	const categoryHome = new Swiper('#ecm-category .swiper-container', {
-		loop: false,
-		speed: 1000,
-		autoplay: {
-			delay: 10000,
-			disableOnInteraction: false,
-		},
-		navigation: {
-			nextEl: "#ecm-category .swiper-button-next",
-			prevEl: "#ecm-category .swiper-button-prev",
-		},
-		breakpoints: {
-			320: {
-				slidesPerView: 1.3,
-				spaceBetween: 30,
-			},
-			600: {
-				slidesPerView: 2.3,
-				spaceBetween: 30,
-			},
-			991: {
-				slidesPerView: 4.3,
-				spaceBetween: 30,
-			},
-			1199: {
-				slidesPerView: 6,
-				spaceBetween: 30,
-			}
 		}
 	});
 	
