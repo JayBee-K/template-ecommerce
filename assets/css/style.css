@@ -827,16 +827,16 @@ textarea:focus,
 }
 
 @media screen and (max-width: 1199px) {
-    .ecm-highlight .ecm-highlight_item:active:after {
+    .ecm-highlight .ecm-highlight_item:focus:after {
         opacity: 1;
     }
 
-    .ecm-highlight .ecm-highlight_item:active a:before,
-    .ecm-highlight .ecm-highlight_item:active a:after {
+    .ecm-highlight .ecm-highlight_item:focus a:before,
+    .ecm-highlight .ecm-highlight_item:focus a:after {
         opacity: 1
     }
 
-    .ecm-highlight .ecm-highlight_item:active a:before {
+    .ecm-highlight .ecm-highlight_item:focus a:before {
         -webkit-transform: scaleX(1);
         -moz-transform: scaleX(1);
         -ms-transform: scaleX(1);
@@ -844,7 +844,7 @@ textarea:focus,
         transform: scaleX(1);
     }
 
-    .ecm-highlight .ecm-highlight_item:active a:after {
+    .ecm-highlight .ecm-highlight_item:focus a:after {
         -webkit-transform: scaleY(1);
         -moz-transform: scaleY(1);
         -ms-transform: scaleY(1);
@@ -852,7 +852,7 @@ textarea:focus,
         transform: scaleY(1);
     }
 
-    .ecm-highlight .ecm-highlight_item:active a span {
+    .ecm-highlight .ecm-highlight_item:focus a span {
         -webkit-transform: scale(1);
         -moz-transform: scale(1);
         -ms-transform: scale(1);
