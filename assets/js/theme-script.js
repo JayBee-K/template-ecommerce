@@ -155,47 +155,51 @@ $(function () {
 		callMenu();
 	});
 	
-	$('#countdown_product-1').countdown({
-		date: '07/24/2021 23:59:59', // day-month-year
-		day: 'Ngày',
-		days: 'Ngày',
-		hour: 'Giờ',
-		hours: 'Giờ',
-		minute: 'Phút',
-		minutes: 'Phút',
-		second: 'Giây',
-		seconds: 'Giây',
-	}, function () {
-		alert('Hết thời gian khuyến mãi!');
-	});
-	
-	$('#countdown_product-2').countdown({
-		date: '07/24/2021 23:59:59', // day-month-year
-		day: 'Ngày',
-		days: 'Ngày',
-		hour: 'Giờ',
-		hours: 'Giờ',
-		minute: 'Phút',
-		minutes: 'Phút',
-		second: 'Giây',
-		seconds: 'Giây',
-	}, function () {
-		alert('Hết thời gian khuyến mãi!');
-	});
-	
-	$('#countdown_product-3').countdown({
-		date: '07/24/2021 23:59:59', // day-month-year
-		day: 'Ngày',
-		days: 'Ngày',
-		hour: 'Giờ',
-		hours: 'Giờ',
-		minute: 'Phút',
-		minutes: 'Phút',
-		second: 'Giây',
-		seconds: 'Giây',
-	}, function () {
-		alert('Hết thời gian khuyến mãi!');
-	});
+	if ($('#countdown_product-1').length) {
+		$('#countdown_product-1').countdown({
+			date: '07/24/2021 23:59:59', // day-month-year
+			day: 'Ngày',
+			days: 'Ngày',
+			hour: 'Giờ',
+			hours: 'Giờ',
+			minute: 'Phút',
+			minutes: 'Phút',
+			second: 'Giây',
+			seconds: 'Giây',
+		}, function () {
+			alert('Hết thời gian khuyến mãi!');
+		});
+	}
+	if ($('#countdown_product-3').length) {
+		$('#countdown_product-2').countdown({
+			date: '07/24/2021 23:59:59', // day-month-year
+			day: 'Ngày',
+			days: 'Ngày',
+			hour: 'Giờ',
+			hours: 'Giờ',
+			minute: 'Phút',
+			minutes: 'Phút',
+			second: 'Giây',
+			seconds: 'Giây',
+		}, function () {
+			alert('Hết thời gian khuyến mãi!');
+		});
+	}
+	if ($('#countdown_product-3').length) {
+		$('#countdown_product-3').countdown({
+			date: '07/24/2021 23:59:59', // day-month-year
+			day: 'Ngày',
+			days: 'Ngày',
+			hour: 'Giờ',
+			hours: 'Giờ',
+			minute: 'Phút',
+			minutes: 'Phút',
+			second: 'Giây',
+			seconds: 'Giây',
+		}, function () {
+			alert('Hết thời gian khuyến mãi!');
+		});
+	}
 	
 	const bannerHome = new Swiper('#ecm-banner .swiper-container', {
 		loop: true,
