@@ -201,21 +201,27 @@ $(function () {
 		});
 	}
 	
-	const bannerHome = new Swiper('#ecm-banner .swiper-container', {
-		loop: true,
+	
+	const highlightBanner = new Swiper('#swiper-highlight', {
+		loop: false,
 		speed: 1000,
-		effect: 'fade',
-		navigation: {
-			nextEl: '#ecm-banner .swiper-button-next',
-			prevEl: '#ecm-banner .swiper-button-prev',
-		},
-		pagination: {
-			el: "#ecm-banner .swiper-pagination",
-			clickable: true,
-		},
 		autoplay: {
-			delay: 100000,
+			delay: 10000,
 			disableOnInteraction: false,
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1.2,
+				spaceBetween: 10,
+			},
+			600: {
+				slidesPerView: 2.2,
+				spaceBetween: 10,
+			},
+			991: {
+				slidesPerView: 4.2,
+				spaceBetween: 10,
+			},
 		}
 	});
 	
@@ -249,7 +255,6 @@ $(function () {
 			}
 		}
 	});
-	
 	
 	const sidebarProduct = new Swiper('#sidebar-product .swiper-container', {
 		loop: true,
