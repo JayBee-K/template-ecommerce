@@ -260,6 +260,22 @@ $(function () {
 
         rangePrice();
     }
+
+    $('#toggleCart').click(function () {
+        if ($('#float-cart').hasClass('is-show')) {
+            $('#float-cart').removeClass('is-show');
+        } else {
+            $('#float-cart').addClass('is-show');
+        }
+    });
+
+    $(document).mouseup(function (e) {
+        let elm = $('#float-cart.is-show');
+        elm.is(e.target) || 0 !== elm.has(e.target).length || (
+            elm.removeClass('is-show')
+        )
+    })
+
     sliderBanner();
     handleSlideProduct();
 });
