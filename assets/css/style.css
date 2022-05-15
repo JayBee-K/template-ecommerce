@@ -3328,6 +3328,10 @@ textarea:focus,
 }
 
 @media screen and (max-width: 991px) {
+    .ecm-banner .banner-item .section-heading .btn-effect {
+        padding: 7px 20px;
+        font-size: .85em;
+    }
     .ecm-banner .banner-item {
         padding: 60px 0 90px;
     }
