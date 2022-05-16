@@ -652,19 +652,12 @@ textarea:focus,
     justify-content: space-between;
     font-size: 14px;
 }
-
+.ecm-product-item .card-header {
+    overflow: hidden;
+}
 .ecm-product-item .card-header img {
     transition: .6s all ease;
     max-width: 100%;
-    height: auto;
-}
-
-.ecm-product-item .card-header .product-image_secondary {
-    opacity: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     height: auto;
 }
 
@@ -725,16 +718,13 @@ textarea:focus,
     z-index: 2;
 }
 
-.ecm-product-item:hover .card-header .product-image_secondary {
-    opacity: 1;
-}
-
 .ecm-product-item .card-body .card-title:hover {
     color: var(--primary-color);
 }
 
 .ecm-product-item:hover .card-header .product-image_primary {
-    opacity: 0;
+    opacity: 0.85;
+    transform: scale(1.1);
 }
 
 .article-inner {
@@ -3184,40 +3174,48 @@ textarea:focus,
 
 .ecm-banner .swiper-pagination {
     width: auto;
-    bottom: unset;
-    left: unset;
-    right: 10px;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: unset;
+    right: unset;
+    bottom: 20px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    -ms-flex-direction: row;
+    flex-direction: row;
     z-index: 4;
 }
 
 .ecm-banner .swiper-pagination .swiper-pagination-bullet {
     border-radius: 50%;
-    height: 12px;
-    width: 12px;
+    height: 25px;
+    width: 12px !important;
     background: transparent;
     border: 2px solid var(--white);
     opacity: .5;
-    -webkit-transition: background-color .3s ease-in-out, border-color .3s ease-in-out, width .3s ease-in-out, border-radius .3s ease-in-out;
-    -o-transition: background-color .3s ease-in-out, border-color .3s ease-in-out, width .3s ease-in-out, border-radius .3s ease-in-out;
-    transition: background-color .3s ease-in-out, border-color .3s ease-in-out, width .3s ease-in-out, border-radius .3s ease-in-out;
-    margin: 6px 0 6px auto;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    margin: 0 6px;
     display: block;
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    transform-origin: bottom;
+    -webkit-transform: scaleY(.45);
+    -ms-transform: scaleY(.45);
+    transform: scaleY(.45);
 }
 
 .ecm-banner .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
 .ecm-banner .swiper-pagination .swiper-pagination-bullet:hover {
-    width: 25px;
+    -webkit-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    transform: scaleY(1);
     border-radius: 30px;
 }
 
@@ -3226,11 +3224,55 @@ textarea:focus,
     opacity: 1;
 }
 
+.ecm-banner .button-swiper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    font-size: 1.2em;
+    background: #fff;
+    border-radius: 50%;
+    color: #232323;
+    -webkit-transition: .3s all ease;
+    -moz-transition: .3s all ease;
+    -ms-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-box-shadow: 0px 4px 8px rgba(97, 97, 97, 0.14), 0px 8px 16px rgba(97, 97, 97, 0.14);
+    -moz-box-shadow: 0px 4px 8px rgba(97, 97, 97, 0.14), 0px 8px 16px rgba(97, 97, 97, 0.14);
+    box-shadow: 0px 4px 8px rgba(97, 97, 97, 0.14), 0px 8px 16px rgba(97, 97, 97, 0.14);
+    z-index: 2;
+}
+
+.ecm-banner .button-swiper.swiper-button-disabled {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.ecm-banner .button-swiper.button-prev {
+    left: 30px;
+}
+
+.ecm-banner .button-swiper.button-next {
+    right: 30px;
+}
+
+.ecm-banner .button-swiper:hover {
+    color: var(--primary-color);
+    background: #e5e5e5;
+}
+
 @media screen and (max-width: 991px) {
     .ecm-banner .banner-item .section-heading .btn-effect {
         padding: 7px 20px;
         font-size: .85em;
     }
+
     .ecm-banner .banner-item {
         padding: 60px 0 90px;
     }
@@ -3244,56 +3286,8 @@ textarea:focus,
         font-size: 1.1em;
     }
 
-    .ecm-banner .swiper-pagination {
-        width: auto;
-        top: unset;
-        right: unset;
-        bottom: 20px;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        z-index: 4;
-    }
-
-    .ecm-banner .swiper-pagination .swiper-pagination-bullet {
-        border-radius: 50%;
-        height: 25px;
-        width: 12px !important;
-        background: transparent;
-        border: 2px solid var(--white);
-        opacity: .5;
-        -webkit-transition: all .3s ease-in-out;
-        -o-transition: all .3s ease-in-out;
-        transition: all .3s ease-in-out;
-        margin: 0 6px;
-        display: block;
-        -webkit-transform-origin: bottom;
-        -ms-transform-origin: bottom;
-        transform-origin: bottom;
-        -webkit-transform: scaleY(.45);
-        -ms-transform: scaleY(.45);
-        transform: scaleY(.45);
-    }
-
-    .ecm-banner .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active,
-    .ecm-banner .swiper-pagination .swiper-pagination-bullet:hover {
-        -webkit-transform: scaleY(1);
-        -ms-transform: scaleY(1);
-        transform: scaleY(1);
-        border-radius: 30px;
-    }
-
-    .ecm-banner .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-        background: var(--white);
-        opacity: 1;
+    .ecm-banner .button-swiper {
+        display: none;
     }
 }
 

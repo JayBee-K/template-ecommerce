@@ -111,6 +111,10 @@ const sliderBanner = () => {
 			el: "#slider-banner .swiper-pagination",
 			clickable: true,
 		},
+		navigation: {
+			nextEl: '#slider-banner .button-next',
+			prevEl: '#slider-banner .button-prev',
+		},
 	});
 }
 
