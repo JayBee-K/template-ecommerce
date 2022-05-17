@@ -160,6 +160,16 @@ textarea:focus,
     max-width: 100%;
 }
 
+.ecm-header .ecm-header_middle .header-search {
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    .ecm-header .ecm-header_middle .header-search {
+        display: block;
+    }
+}
+
 .header-search {
     position: relative;
 }
