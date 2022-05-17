@@ -774,6 +774,22 @@ textarea:focus,
     transform: scale(1.1);
 }
 
+.ecm-product-item .card-action a {
+    color: var(--danger);
+    border-radius: 4px;
+    height: 26px;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #d4d4d4;
+    margin-right: -8px;
+}
+
+.ecm-product-item .card-action a:hover {
+    background: #e7e7e7;
+}
+
 .article-inner {
     margin-top: 15px;
 }
@@ -3190,6 +3206,12 @@ textarea:focus,
 }
 
 .float-cart .float-cart_button .btn {
+    width: 100%;
+    background-color: #28a745;
+}
+
+.float-cart .float-cart_button .btn:before {
+    background-color: #1c7c32;
     width: 100%;
 }
 
